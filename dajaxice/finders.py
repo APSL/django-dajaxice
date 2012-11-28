@@ -32,6 +32,7 @@ class VirtualStorage(finders.FileSystemStorage):
             tmp_file = open(tmp_path, 'w')
             tmp_file.write(data)
             tmp_file.close()
+            os.chmod(tmp_path,0644)
             self._files_cache[path] = tmp_path
 
         return self._files_cache[path]
